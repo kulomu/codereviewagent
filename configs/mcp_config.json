@@ -1,0 +1,16 @@
+{
+  "code_review": {
+    "command": "uv",
+    "args": [
+      "run",
+      "-m",
+      "mcp_servers.code_review.main"
+    ],
+    "install_path": "/ai/aicr/mcp_servers/code_review",
+    "source": {
+      "type": "git",
+      "repo": "aicr-mcps",
+      "subfolder": "code_review"
+    }
+  }
+}

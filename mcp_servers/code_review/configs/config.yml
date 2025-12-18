@@ -1,0 +1,48 @@
+global:
+  gitlab:
+    base_url: 'https://gitlab.com'
+    base_api_url: 'https://gitlab.com/api/v4'
+    # token: ${GITLAB_TOKEN}  # 從環境變數讀取
+  dify:
+    base_url: 'https://dify.staging.link/v1'
+    api_key: 'dataset-SAKwbC3Isvw1qPew3EsWGBFh'
+  template_path: 'templates'
+group:
+  web:
+    extensions:  # 檔案過濾
+      - .js
+      - .jsx
+      - .tsx
+      - .ts
+      - .vue
+      - .css
+      - .scss
+      - .less
+      - .sass
+      - .env
+      - .production
+      - .prod
+    template_path: 'templates'
+    repo_info_file: 'package.json'  # 獲取專案框架資訊依賴檔案
+    dify:
+      dataset_id: '64cd668e-95cc-488f-bd7d-c15a16e8e292'  # 知識庫 id
+    lark:
+      webhook_id: 'bf852fca-df94-40ea-a055-8430b4e78ffd'  # lark 訊息通知 bot 的 id
+      app_id: 'cli_a7eb86f47eb8902f'
+      app_secret_key: 'p68XxhhEJMvpga1yUo9qDcLoNYHukU2q'
+      spreadsheet_token: 'OfqJsyVV3hxdlHtJEidlE3R3g5e'  # 紀錄的表單
+      sheet_id: 'g5b5fO'  # 紀錄的表單分頁
+  app:
+    extensions:  # 檔案過濾
+      - .yaml
+      - .dart
+    template_path: 'templates'
+    repo_info_file: 'pubspec.yaml'  # 獲取專案框架資訊依賴檔案
+    dify:
+      dataset_id: 'd7a7da03-a79d-4ef5-a743-9a5c4cc2125e'  # 知識庫 id  # 紀錄的表單分頁 
+    lark:
+      webhook_id: '4aa85f4f-a064-4587-bb6f-f859a0d91b4e'  # lark 訊息通知 bot 的 id
+      app_id: 'cli_a8cf30580678d02f'
+      app_secret_key: 'TPLvp809iLkYYfmqRLWAkdYpzhewGz6O'
+      spreadsheet_token: 'Nv7xspx4MhboLCtdVCXlz5XHgNc'  # 紀錄的表單
+      sheet_id: 'f52905'  # 紀錄的表單分頁 

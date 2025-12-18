@@ -1,0 +1,33 @@
+[project]
+name = "aicr"
+version = "0.1.0"
+description = "企业级 AI 助手"
+readme = "README.md"
+requires-python = ">=3.13.2"
+dependencies = [
+    "boto3>=1.37.24",
+    "httpx>=0.28.1",
+    "llama-index>=0.12.27",
+    "llama-index-llms-bedrock>=0.3.8",
+    "mcp[cli]>=1.6.0",
+    "python-dotenv>=1.1.0",
+    "typer>=0.15.2",
+    "prompt-toolkit>=3.0.50",
+    "pyyaml>=6.0.2",
+    "requests>=2.32.3",
+]
+
+[project.scripts]
+airc = "cli.__main__:main"
+ty = "cli.__main__:main"           # 短命令别名
+
+[tool.setuptools]
+packages = ["cli", "agent", "llm", "mcps", "plugins"]  # 添加包列表
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+exclude = ["test*", ".git*", "src", "dist"]

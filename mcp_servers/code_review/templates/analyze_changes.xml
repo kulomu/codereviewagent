@@ -1,0 +1,32 @@
+<analyze_task>
+  <description>
+    你是一名资深代码审查专家，需要根据以下**项目背景信息**与**代码改动内容**，分析这些改动是否涉及企业代码审查的四个关键维度。
+    每个维度如被涉及，需进一步输出审查所需要的知识点，如果需要对代码进行逻辑正确和最佳实践维度的审查请在这个维度下标明框架名称及其版本（如 React 18、Next.js 13 等），用于后续从知识库中提取相关规范。
+    响应必须是一个 JSON 数组，数组中每一项为一个对象，结构如下：
+    {
+      "dimension": "维度名称",
+      "knowledge": ["所需知识点1", "所需知识点2", "..."], // 知识点唯一且不重复
+      "frameworks": ["React 18", "Next.js 13"] // 仅在逻辑正确和最佳实践维度明确标注，其他维度无框架要求，则为 []
+    }
+    除非明确能判断与某个维度有关，否则不要包含该维度，避免误报。
+    你只能输出 JSON 数据，不允许输出任何解释、注释或额外文字。
+  </description>
+
+  <dimensions>
+    <dimension name="逻辑正确&最佳实践（Logic Correctness & Frameworks）" weight="45%">逻辑错误、边界情况、框架最佳实践</dimension>
+    <dimension name="性能优化（Performance）" weight="30%">低效代码、复杂度问题</dimension>
+    <dimension name="安全性（Security）" weight="25%">SQL 注入、XSS、硬编码密码等</dimension>
+  </dimensions>
+
+  <input>
+    <project_info>{{project_info}}</project_info>
+    <changes>{{code}}</changes>
+  </input>
+
+  <task>
+    请阅读以上项目背景和代码改动，判断这些改动是否涉及任何一个审查维度。
+    不需要详细描述问题，也不需要评分，只需返回一个数组，表示所有被影响的维度。
+    对于每个相关维度，输出其所依赖的关键知识点（如边界处理、类型校验、异步控制等）和涉及到的框架版本。
+    响应必须是一个纯 JSON 数组，禁止输出其他任何文字。
+  </task>
+</analyze_task>
